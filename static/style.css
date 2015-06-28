@@ -20,3 +20,5 @@ h2              { font-size: 1.2em; }
 #post_btn 		{ text-align: right;}
 
 #editbtn		{text-align: right;}
+
+.form-group 	{border-top: 1px solid black}
