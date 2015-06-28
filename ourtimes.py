@@ -7,8 +7,10 @@ from flask import Flask, request, session, g, redirect, url_for, \
 from contextlib import closing
 import datetime
 from entries.models import Entries, Links, Columns, Statics
-from entries.database import db_session
-
+from entries.database import db_session, engine
+from wtforms import Form, TextField, TextAreaField
+from wtforms.validators import Required, Length
+from entries.form import EditForm
 
 DATABASE = "/tmp/ourtimes.db"
 DEBUG = True
@@ -16,28 +18,40 @@ SECRET_KEY = 'development key'
 USERNAME = 'admin'
 PASSWORD = 'a'
 
+
+
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-# def connect_db():
-#     return sqlite3.connect(app.config['DATABASE'])
 
-# def init_db():
-#     with closing(connect_db()) as db:
-#         with app.open_resource('schema.sql') as f:
-#             db.cursor().executescript(f.read())
-#         db.commit()
+@app.teardown_request
+def shutdown_session(exception=None):
+    db_session.remove()
 
-# @app.before_request
-# def before_request():
-# 	g.db = connect_db()
+@app.route("/", methods=["GET"])
+def show_top():
+	entries = Entries.query.all()
+	return render_template("top.html",entries=entries)
 
-# @app.after_request
-# def after_request(response):
-# 	g.db.close()
-# 	return response
+@app.route("/<id>",methods=["GET"])
+def show_content(id):
+	entry = Entries.query.filter_by(id=id).first()
+	links = Links.query.filter_by(entry_id=id).all()
+	columns = Columns.query.filter_by(entry_id=id).all()
+	statics = Statics.query.filter_by(entry_id=id).all()
+	return render_template("content.html",entry=entry,links=links,statics=statics,columns=columns)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/column/<id>", methods=["GET"])
+def show_column(id):
+	columns = Columns.query.filter_by(id=id).first()
+	return render_template("readmore.html",columns=columns)
+
+@app.route("/static/<id>", methods=["GET"])
+def show_static(id):
+	statics = Statics.query.filter_by(id=id).first()
+	return render_template("readmore.html",statics=statics)
+
+@app.route("/admin", methods=["GET", "POST"])
 def login():
 	error = None
 	if request.method == "POST":
@@ -67,29 +81,63 @@ def show_entries():
 @app.route("/detail/<id>", methods=["GET"])
 def show_detail(id):
 	entry = Entries.query.filter_by(id=id).first()
-	links = Links.query.filter_by(entry_id=id).first()
+	links = Links.query.filter_by(entry_id=id).all()
+	columns = Columns.query.filter_by(entry_id=id).all()
+	statics = Statics.query.filter_by(entry_id=id).all()
 	if entry is None:
 		abort(404)
-	print entry.__getattribute__
-	return render_template("detail.html",entry=entry,links=links)
+	return render_template("detail.html",entry=entry,links=links,statics=statics,columns=columns)
+
 
 @app.route("/detail/<id>", methods=["POST"])
 def edit_detail(id=None):
-    if id is None:
-    	abort(404)
-    d = datetime.datetime.today()
-    date = datetime.date(d.year, d.month, d.day)
-    content = Entries.query.filter_by(id=id).first()
-    content.title = request.form["title"]
-    content.member = request.form["member"]
-    content.date = date
-    db_session.add(content)
-    db_session.commit()
-    return redirect(url_for("detail.html",entry=content))
+	if id is None:
+		abort(404)
+	entry = Entries.query.filter_by(id=id).first()
+	links = Links.query.filter_by(entry_id=id).all()
+	columns = Columns.query.filter_by(entry_id=id).all()
+	statics = Statics.query.filter_by(entry_id=id).all()
+	entry.title = request.form["title"]
+	entry.member = request.form["member"]
+	entry.date = request.form["date"]
+	columns[0].text = request.form["column1"]
+	columns[0].image_url = request.form["c1_image"]
+	columns[1].text = request.form["column2"]
+	columns[1].image_url = request.form["c2_image"]
+	statics[0].text = request.form["statics"]
+	statics[0].image_url = request.form["s_image"]
+	statics[0].link = request.form["s_link"]
+	links[0].title = request.form["news1"]
+	links[0].url = request.form["n1_link"]
+	links[1].title = request.form["news2"]
+	links[1].url = request.form["n2_link"]
+	links[2].title = request.form["news3"]
+	links[2].url = request.form["n3_link"]
+	links[3].title = request.form["news4"]
+	links[3].url = request.form["n4_link"]
+	links[4].title = request.form["news5"]
+	links[4].url = request.form["n5_link"]
+	links[5].title = request.form["news6"]
+	links[5].url = request.form["n6_link"]
+	links[6].title = request.form["news7"]
+	links[6].url = request.form["n7_link"]
+	links[7].title = request.form["news8"]
+	links[7].url = request.form["n8_link"]
+	links[8].title = request.form["news9"]
+	links[8].url = request.form["n9_link"]
+	links[9].title = request.form["news10"]
+	links[9].url = request.form["n10_link"]
+	print entry.Columns
+	print columns
+	print columns[0]
+	entry.Columns = columns
+	entry.links = links
+	entry.Statics = statics
+	db_session.add(entry)
+	db_session.commit()
+	return redirect(url_for("show_detail", id=id))
 
-
-
-@app.route("/new", methods=["GET", "POST"])
+@app.route("/new", methods=["GET"])
 def new():
 	return render_template("post.html")
 
@@ -125,10 +173,12 @@ def add_entry():
 	flash("New entry was successfully posted")
 	return redirect(url_for("show_entries"))
 
-# def add_link():
-# 	id = Entries.query.filter_by(id=id).first()
-
-
+@app.route("/0520/del/<id>",methods=["GET"])
+def delete(id):
+	target = db_session.query(Entries).get(id)
+	db_session.delete(target)
+	db_session.commit()
+	return redirect("entries")
 
 if __name__ == '__main__':
     app.run()
