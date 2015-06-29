@@ -1,0 +1,56 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+<div class="col-xs-12">
+	<h3> {{ entry.title }} </h3>
+	<p id="date">{{ entry.date}} </p>
+</div>
+
+<div id="colums" class="col-xs-12">
+<img src="{{ url_for('static', filename='img/column.jpg')}}" class="col-xs-4 logo">
+{% for column in columns%}
+<div class="box col-xs-12">
+	<div class="group-img col-xs-4 thumnail">
+			<img class="group_icon  img-responsive" src="{{column.image_url}}">
+	</div>
+	<div class="group-text col-xs-8">
+		<h4>{{column.title}}</h4>
+		<a href="{{ url_for('show_column', id= column.id) }}">readmore</a>
+	</div>
+</div>
+{%endfor%}
+</div>
+
+<div id="news" class="col-xs-12">
+<img src="{{ url_for('static', filename='img/news.jpg')}}" class="col-xs-4 logo">
+{% for link in links%}
+<div class="box col-xs-12">
+	<div class="group-img col-xs-3 thumnail">
+			<img class="group_icon  img-responsive" src="{{ url_for('static', filename="img/s1.jpg")}}">
+	</div>
+	<div class="group-text col-xs-9">
+		<a href="{{link.url}}">
+			<h4>{{link.title}}</h4>
+		</a>
+	</div>
+</div>
+{%endfor%}
+</div>
+
+<div id="data" class="col-xs-12">
+<img src="{{ url_for('static', filename='img/statics.jpg')}}" class="col-xs-4 logo">
+{% for static in statics%}
+<div class="box col-xs-12">
+	<div class="group-img col-xs-4 thumnail">
+			<img class="group_icon  img-responsive" src="{{static.image_url}}">
+	</div>
+	<div class="group-text col-xs-8">
+		<h4>{{static.title}}</h4>
+		<a href="{{ url_for('show_static', id= static.id) }}">readmore</a>
+	</div>
+</div>
+{%endfor%}
+</div>
+
+
+
+{% endblock %}

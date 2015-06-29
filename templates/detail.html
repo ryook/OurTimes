@@ -1,0 +1,342 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>detail</h2>
+  <form method="POST" action="{{ url_for('edit_detail', id= entry.id) }}">
+  <div class=form-group>
+    <table class=table>
+        <tr>
+            <th class=col-md-2>
+                Title
+            </th>
+            <td class=col-md-10>
+                <input type=text size=100 name=title value={{entry.title}}>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Member
+            </th>
+            <td>
+                <input name=member size=40 value={{entry.member}}>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Date
+            </th>
+            <td>
+                <input name=date size=40 value={{entry.date}}>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                group image
+            </th>
+            <td>
+                <input type=url name=g_image size=100 value={{ entry.url }}>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <h3>Column</h3>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    column1 title
+                </th>
+                <td class=col-md-10>
+                    <input type=text size=100 name=c1_title value={{ columns[0].title }}>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    column1
+                </th>
+                <td class=col-md-10>
+                    <textarea name=column1 cols=100 rows=5>{{ columns[0].text }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    column1 image
+                </th>
+                <td class=col-md-10>
+                    <input type=url name=c1_image size=100 value={{ columns[0].image_url }} >
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    column2 title
+                </th>
+                <td class=col-md-10>
+                    <input type=text size=100 name=c2_title value={{ columns[1].title }}>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    column2
+                </th>
+                <td>
+                    <textarea name=column2 cols=100 rows=5>{{ columns[1].text }}</textarea>
+                </td class=col-md-10>
+            </tr>
+            <tr>
+                <th>
+                    column2 image
+                </th>
+                <td>
+                    <input type=url name=c2_image size=40 value={{ columns[1].image_url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Statics</h3>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    data title
+                </th>
+                <td class=col-md-10>
+                    <input type=text size=100 name=s_title value={{ statics[0].title }}>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    statics
+                </th>
+                <td class=col-md-10>
+                    <textarea name=statics cols=100 rows=5>{{ statics[0].text}} </textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    statics image
+                </th>
+                <td>
+                    <input type=url name=s_image size=100 value={{ statics[0].image_url }}>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    statics Link
+                </th>
+                <td>
+                    <input type=url name=s_link size=40 value={{ statics[0].link }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>News</h3>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News1
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news1 cols=100 rows=2>{{ links[0].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News1 Link
+                </th>
+                <td>
+                    <input type=url name=n1_link size=100 value={{ links[0].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News2
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news2 cols=100 rows=2>{{ links[1].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News2 Link
+                </th>
+                <td>
+                    <input type=url name=n2_link size=100 value={{ links[1].url }}>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News3
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news3 cols=100 rows=2>{{ links[2].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News3 Link
+                </th>
+                <td>
+                    <input type=url name=n3_link size=100 value={{ links[2].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News4
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news4 cols=100 rows=2>{{ links[3].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News4 Link
+                </th>
+                <td class=col-md-10>
+                    <input type=url name=n4_link size=100 value={{ links[3].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News5
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news5 cols=100 rows=2>{{ links[4].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News5 Link
+                </th>
+                <td class=col-md-10>
+                    <input type=url name=n5_link size=100 value={{ links[4].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News6
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news6 cols=100 rows=2>{{ links[5].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News6 Link
+                </th>
+                <td class=col-md-10>
+                    <input type=url name=n6_link size=100 value={{ links[5].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News7
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news7 cols=100 rows=2>{{ links[6].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News7 Link
+                </th>
+                <td>
+                    <input type=url name=n7_link size=100 value={{ links[6].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News8
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news8 cols=100 rows=2>{{ links[7].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News8 Link
+                </th>
+                <td class=col-md-10>
+                    <input type=url name=n8_link size=100 value={{ links[7].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News9
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news9 cols=100 rows=2>{{ links[8].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News9 Link
+                </th>
+                <td class=col-md-10>
+                    <input type=url name=n9_link size=100 value={{ links[8].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News10
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news10 cols=100 rows=2>{{ links[9].title }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News10 Link
+                </th>
+                <td>
+                    <input type=url name=n10_link size=100 value={{ links[9].url }}>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+     <dd>
+        <button type="button" class="btn btn-success"><input type=submit></button>
+    </dl>
+  </form>
+  <button type="button" class="btn btn-link"><a href="{{ url_for('show_entries')}}">back</a></button>
+
+{% endblock %}

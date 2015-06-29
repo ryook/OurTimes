@@ -43,13 +43,15 @@ def show_content(id):
 
 @app.route("/column/<id>", methods=["GET"])
 def show_column(id):
-	columns = Columns.query.filter_by(id=id).first()
-	return render_template("readmore.html",columns=columns)
+	column = Columns.query.filter_by(id=id).first()
+	entry = Entries.query.filter_by(id=column.entry_id).first()
+	return render_template("readmore.html",column=column,entry=entry)
 
-@app.route("/static/<id>", methods=["GET"])
+@app.route("/statics/<id>", methods=["GET"])
 def show_static(id):
-	statics = Statics.query.filter_by(id=id).first()
-	return render_template("readmore.html",statics=statics)
+	static = Statics.query.filter_by(id=id).first()
+	entry = Entries.query.filter_by(id=static.entry_id).first()
+	return render_template("readmore.html",static=static,entry=entry)
 
 @app.route("/admin", methods=["GET", "POST"])
 def login():
@@ -100,10 +102,14 @@ def edit_detail(id=None):
 	entry.title = request.form["title"]
 	entry.member = request.form["member"]
 	entry.date = request.form["date"]
+	entry.url = request.form["g_image"]
+	columns[0].title = request.form["c1_title"]
 	columns[0].text = request.form["column1"]
 	columns[0].image_url = request.form["c1_image"]
+	columns[1].title = request.form["c2_title"]
 	columns[1].text = request.form["column2"]
 	columns[1].image_url = request.form["c2_image"]
+	statics[0].title = request.form["s_title"]
 	statics[0].text = request.form["statics"]
 	statics[0].image_url = request.form["s_image"]
 	statics[0].link = request.form["s_link"]
@@ -149,12 +155,12 @@ def add_entry():
 		abort(401)
 	d = datetime.datetime.today()
 	date = datetime.date(d.year, d.month, d.day)
-	entry = Entries(request.form["title"],request.form["member"],date)
-	column1 = Columns(request.form["column1"],request.form["c1_image"])
-	column2 = Columns(request.form["column2"],request.form["c2_image"])
+	entry = Entries(request.form["title"],request.form["member"],date,request.form["g_image"])
+	column1 = Columns(request.form["c1_title"],request.form["column1"],request.form["c1_image"])
+	column2 = Columns(request.form["c2_title"],request.form["column2"],request.form["c2_image"])
 	columns = [column1, column2]
 	entry.Columns = columns
-	statics = [Statics(request.form["statics"],request.form["s_image"],request.form["s_link"])]
+	statics = [Statics(request.form["s_title"],request.form["statics"],request.form["s_image"],request.form["s_link"])]
 	entry.Statics = statics
 	link1 = Links(request.form["news1"],request.form["n1_link"])
 	link2 = Links(request.form["news2"],request.form["n2_link"])

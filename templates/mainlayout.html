@@ -1,0 +1,20 @@
+<!doctype html>
+<title>OurTimes</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mainstyle.css') }}">
+
+<div id="body" class="container">
+  <div id="header" class="row">
+    <img src="{{ url_for('static', filename='img/OurTimes.png') }}" class="col-xs-8">
+  </div>
+
+  <div id="main" class="row col-xs-12">
+    {% block content %}{% endblock %}
+  </div>
+
+  <div id="footer" class="col-xs-12" >
+    <footer>慶應SFC 社会構造分析</footer>
+  </div>
+</div>
