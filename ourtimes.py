@@ -1,7 +1,6 @@
 #coding:utf-8
 
 from __future__ import with_statement
-import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from contextlib import closing
@@ -39,7 +38,8 @@ def show_content(id):
 	links = Links.query.filter_by(entry_id=id).all()
 	columns = Columns.query.filter_by(entry_id=id).all()
 	statics = Statics.query.filter_by(entry_id=id).all()
-	return render_template("content.html",entry=entry,links=links,statics=statics,columns=columns)
+	pic = ["image/s1.jpg","image/s2.jpg","image/s3.jpg","image/s4.jpg","image/s5.jpg","image/s6.jpg","image/s7.jpg","image/s8.jpg","image/s9.jpg","image/s10.jpg"]
+	return render_template("content.html",entry=entry,links=links,statics=statics,columns=columns,pic=pic)
 
 @app.route("/column/<id>", methods=["GET"])
 def show_column(id):
