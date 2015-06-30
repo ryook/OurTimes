@@ -1,0 +1,333 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<form action="{{ url_for('add_entry') }}" method=post class=add-entry role=form>
+    <div class=form-group>
+    <table class=table>
+        <tr>
+            <th class=col-md-2>
+                Title
+            </th>
+            <td class=col-md-10>
+                <input type=text size=100 name=title>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Member
+            </th>
+            <td>
+                <input name=member size=40>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                group image
+            </th>
+            <td>
+                <input type=url name=g_image size=100 placeholder="http://"></textarea>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <h3>Column</h3>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    column1 title
+                </th>
+                <td class=col-md-10>
+                    <input type=text size=100 name=c1_title>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    column1
+                </th>
+                <td class=col-md-10>
+                    <textarea name=column1 cols=100 rows=5></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    column1 image
+                </th>
+                <td class=col-md-10>
+                    <input type=url name=c1_image size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    column2 title
+                </th>
+                <td class=col-md-10>
+                    <input type=text size=100 name=c2_title>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    column2
+                </th>
+                <td>
+                    <textarea name=column2 cols=100 rows=5></textarea>
+                </td class=col-md-10>
+            </tr>
+            <tr>
+                <th>
+                    column2 image
+                </th>
+                <td>
+                    <input name=c2_image size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Statics</h3>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    data title
+                </th>
+                <td class=col-md-10>
+                    <input type=text size=100 name=s_title>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    data
+                </th>
+                <td class=col-md-10>
+                    <textarea name=statics cols=100 rows=5></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    data image
+                </th>
+                <td>
+                    <input name=s_image size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    statics Link
+                </th>
+                <td>
+                    <input type=url name=s_link size=100>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>News</h3>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News1
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news1 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News1 Link
+                </th>
+                <td>
+                    <input name=n1_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News2
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news2 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News2 Link
+                </th>
+                <td>
+                    <input name=n2_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News3
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news3 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News3 Link
+                </th>
+                <td>
+                    <input name=n3_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News4
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news4 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News4 Link
+                </th>
+                <td class=col-md-10>
+                    <input name=n4_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News5
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news5 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News5 Link
+                </th>
+                <td class=col-md-10>
+                    <input name=n5_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News6
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news6 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News6 Link
+                </th>
+                <td class=col-md-10>
+                    <input name=n6_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News7
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news7 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News7 Link
+                </th>
+                <td>
+                    <input name=n7_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News8
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news8 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News8 Link
+                </th>
+                <td class=col-md-10>
+                    <input name=n8_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News9
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news9 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th class=col-md-2>
+                    News9 Link
+                </th>
+                <td class=col-md-10>
+                    <input name=n9_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=form-group>
+        <table class=table>
+            <tr>
+                <th class=col-md-2>
+                    News10
+                </th>
+                <td class=col-md-10>
+                    <textarea name=news10 cols=100 rows=2></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    News10 Link
+                </th>
+                <td>
+                    <input name=n10_link size=100 placeholder="http://"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+     <dd>
+        <button type="button" class="btn btn-success"><input type=submit></button>
+    </dl>
+</form>
+{% endblock %}
