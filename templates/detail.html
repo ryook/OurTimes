@@ -6,6 +6,14 @@
     <table class=table>
         <tr>
             <th class=col-md-2>
+                Id
+            </th>
+            <td class=col-md-10>
+                    {{entry.id}}
+            </td>
+        </tr>
+        <tr>
+            <th class=col-md-2>
                 Title
             </th>
             <td class=col-md-10>
@@ -25,7 +33,8 @@
                 Date
             </th>
             <td>
-                <input name=date size=40 value={{entry.date}}>
+                <input name=date size=40 value={{entry.date}} type=hidden>
+                {{entry.date}}
             </td>
         </tr>
         <tr>

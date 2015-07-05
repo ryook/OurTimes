@@ -25,11 +25,12 @@
 {% for link in links%}
 <div class="box col-xs-12">
 	<div class="group-img col-xs-3 thumnail">
-			<img class="group_icon  img-responsive" src="static/img/s{{loop.index}}.jpg">
+			<img class="group_icon  img-responsive" src="https://dl.dropboxusercontent.com/u/12755271/ourtimes/{{entry.date}}/s{{loop.index}}.jpg">
 	</div>
 	<div class="group-text col-xs-9">
 		<a href="{{link.url}}">
 			<h4>{{link.title}}</h4>
+			{{entry.date}}
 		</a>
 	</div>
 </div>
