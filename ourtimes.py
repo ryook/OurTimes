@@ -7,9 +7,6 @@ from contextlib import closing
 import datetime
 from entries.models import Entries, Links, Columns, Statics
 from entries.database import db_session, engine
-from wtforms import Form, TextField, TextAreaField
-from wtforms.validators import Required, Length
-from entries.form import EditForm
 
 DATABASE = "/tmp/ourtimes.db"
 DEBUG = True
@@ -18,10 +15,9 @@ USERNAME = 'admin'
 PASSWORD = 'a'
 
 
-
 app = Flask(__name__)
 app.config.from_object(__name__)
-
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DATABASE_URL"]
 
 @app.teardown_request
 def shutdown_session(exception=None):
@@ -133,9 +129,6 @@ def edit_detail(id=None):
 	links[8].url = request.form["n9_link"]
 	links[9].title = request.form["news10"]
 	links[9].url = request.form["n10_link"]
-	print entry.Columns
-	print columns
-	print columns[0]
 	entry.Columns = columns
 	entry.links = links
 	entry.Statics = statics
