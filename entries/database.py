@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 import os
+from ourtimes import app, db
 
 # databese_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'ourtimes.db')
 database_url = os.environ["DATABASE_URL"]
