@@ -8,6 +8,7 @@ import datetime
 from entries.models import Entries, Links, Columns, Statics
 from entries.database import db_session, engine
 import os
+from flask.ext.sqlalchemy import SQLAlchemy
 
 DATABASE = "/tmp/ourtimes.db"
 DEBUG = True
@@ -19,6 +20,7 @@ PASSWORD = 'ssa_2015'
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DATABASE_URL"]
+db = SQLAlchemy(app)
 
 
 @app.teardown_request
