@@ -7,10 +7,10 @@ class Entries(Base):
 	__tablename__ = "entries"
 	__table_args__ = {"useexisting": True}
 	id = Column("id", Integer, primary_key=True)
-	title = Column("title", String(128))
+	title = Column("title", Text
 	member = Column("member", Text)
 	date = Column("date",Text)
-	url = Column("url", String(140))
+	url = Column("url", String(200))
 	links = relationship("Links")
 	Columns = relationship("Columns",order_by='Columns.id',
                          uselist=True)
@@ -46,8 +46,8 @@ class Columns(Base):
 	id = Column(Integer, primary_key=True)
 	entry_id = Column(Integer, ForeignKey('entries.id',
         onupdate='CASCADE', ondelete='CASCADE'))
-	title = Column(String(100))
-	text  = Column(String(500))
+	title = Column(Text)
+	text  = Column(Text)
 	image_url = Column(String(200))
 
 	def __init__(self, title=None, text=None, image_url=None):
@@ -63,8 +63,8 @@ class Statics(Base):
 	id = Column(Integer, primary_key=True)
 	entry_id = Column(Integer, ForeignKey('entries.id',
         onupdate='CASCADE', ondelete='CASCADE'))
-	title = Column(String(100))
-	text = Column(String(500))
+	title = Column(Text)
+	text = Column(Text)
 	image_url = Column(String(200))
 	link = Column(String(200))
 

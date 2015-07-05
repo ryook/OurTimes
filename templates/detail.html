@@ -23,7 +23,7 @@
                 Title
             </th>
             <td class=col-md-10>
-                <input type=text size=100 name=title value={{entry.title}}>
+                <input type=text size=100 name=title value={{entry.title}} maxlength='140' required>
             </td>
         </tr>
         <tr>
@@ -31,7 +31,7 @@
                 Member
             </th>
             <td>
-                <input name=member size=40 value={{entry.member}}>
+                <input name=member size=40 value={{entry.member}} maxlength='140' required>
             </td>
         </tr>
         <tr>
@@ -48,7 +48,7 @@
                 group image
             </th>
             <td>
-                <input type=url name=g_image size=100 value={{ entry.url }}>
+                <input type=url name=g_image size=100 value={{ entry.url }} maxlength='200' required>
             </td>
         </tr>
     </table>
@@ -61,7 +61,7 @@
                     column1 title
                 </th>
                 <td class=col-md-10>
-                    <input type=text size=100 name=c1_title value={{ columns[0].title }}>
+                    <input type=text size=100 name=c1_title value={{ columns[0].title }} maxlength='140' required>
                 </td>
             </tr>
             <tr>
@@ -69,7 +69,7 @@
                     column1
                 </th>
                 <td class=col-md-10>
-                    <textarea name=column1 cols=100 rows=5>{{ columns[0].text }}</textarea>
+                    <textarea name=column1 cols=100 rows=5 maxlength='400' required>{{ columns[0].text }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@
                     column1 image
                 </th>
                 <td class=col-md-10>
-                    <input type=url name=c1_image size=100 value={{ columns[0].image_url }} >
+                    <input type=url name=c1_image size=100 value={{ columns[0].image_url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -89,7 +89,7 @@
                     column2 title
                 </th>
                 <td class=col-md-10>
-                    <input type=text size=100 name=c2_title value={{ columns[1].title }}>
+                    <input type=text size=100 name=c2_title value={{ columns[1].title }} maxlength='140'>
                 </td>
             </tr>
             <tr>
@@ -97,7 +97,7 @@
                     column2
                 </th>
                 <td>
-                    <textarea name=column2 cols=100 rows=5>{{ columns[1].text }}</textarea>
+                    <textarea name=column2 cols=100 rows=5 maxlength='400'>{{ columns[1].text }}</textarea>
                 </td class=col-md-10>
             </tr>
             <tr>
@@ -105,7 +105,7 @@
                     column2 image
                 </th>
                 <td>
-                    <input type=url name=c2_image size=40 value={{ columns[1].image_url }}>
+                    <input type=url name=c2_image size=40 value={{ columns[1].image_url }} maxlength='200'>
                 </td>
             </tr>
         </table>
@@ -118,7 +118,7 @@
                     data title
                 </th>
                 <td class=col-md-10>
-                    <input type=text size=100 name=s_title value={{ statics[0].title }}>
+                    <input type=text size=100 name=s_title value={{ statics[0].title }} maxlength='140' required>
                 </td>
             </tr>
             <tr>
@@ -126,15 +126,15 @@
                     statics
                 </th>
                 <td class=col-md-10>
-                    <textarea name=statics cols=100 rows=5>{{ statics[0].text}} </textarea>
+                    <textarea name=statics cols=100 rows=5 maxlength='400' required>{{ statics[0].text}} </textarea>
                 </td>
             </tr>
             <tr>
                 <th>
                     statics image
                 </th>
-                <td>
-                    <input type=url name=s_image size=100 value={{ statics[0].image_url }}>
+                <td> 
+                    <input type=url name=s_image size=100 value={{ statics[0].image_url }} maxlength='200' required>
                 </td>
             </tr>
             <tr>
@@ -142,7 +142,7 @@
                     statics Link
                 </th>
                 <td>
-                    <input type=url name=s_link size=40 value={{ statics[0].link }}>
+                    <input type=url name=s_link size=40 value={{ statics[0].link }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -155,7 +155,7 @@
                     News1
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news1 cols=100 rows=2>{{ links[0].title }}</textarea>
+                    <textarea name=news1 cols=100 rows=2 maxlength='200' required>{{ links[0].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -163,7 +163,7 @@
                     News1 Link
                 </th>
                 <td>
-                    <input type=url name=n1_link size=100 value={{ links[0].url }}>
+                    <input type=url name=n1_link size=100 value={{ links[0].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -175,7 +175,7 @@
                     News2
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news2 cols=100 rows=2>{{ links[1].title }}</textarea>
+                    <textarea name=news2 cols=100 rows=2 maxlength='200' required>{{ links[1].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -183,7 +183,7 @@
                     News2 Link
                 </th>
                 <td>
-                    <input type=url name=n2_link size=100 value={{ links[1].url }}>
+                    <input type=url name=n2_link size=100 value={{ links[1].url }} maxlength='200' required>
             </tr>
         </table>
     </div>
@@ -194,7 +194,7 @@
                     News3
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news3 cols=100 rows=2>{{ links[2].title }}</textarea>
+                    <textarea name=news3 cols=100 rows=2 maxlength='200' required>{{ links[2].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -202,7 +202,7 @@
                     News3 Link
                 </th>
                 <td>
-                    <input type=url name=n3_link size=100 value={{ links[2].url }}>
+                    <input type=url name=n3_link size=100 value={{ links[2].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -214,7 +214,7 @@
                     News4
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news4 cols=100 rows=2>{{ links[3].title }}</textarea>
+                    <textarea name=news4 cols=100 rows=2 maxlength='200' required>{{ links[3].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -222,7 +222,7 @@
                     News4 Link
                 </th>
                 <td class=col-md-10>
-                    <input type=url name=n4_link size=100 value={{ links[3].url }}>
+                    <input type=url name=n4_link size=100 value={{ links[3].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -234,7 +234,7 @@
                     News5
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news5 cols=100 rows=2>{{ links[4].title }}</textarea>
+                    <textarea name=news5 cols=100 rows=2 maxlength='200' required>{{ links[4].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -242,7 +242,7 @@
                     News5 Link
                 </th>
                 <td class=col-md-10>
-                    <input type=url name=n5_link size=100 value={{ links[4].url }}>
+                    <input type=url name=n5_link size=100 value={{ links[4].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -254,7 +254,7 @@
                     News6
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news6 cols=100 rows=2>{{ links[5].title }}</textarea>
+                    <textarea name=news6 cols=100 rows=2 maxlength='200' required>{{ links[5].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -262,7 +262,7 @@
                     News6 Link
                 </th>
                 <td class=col-md-10>
-                    <input type=url name=n6_link size=100 value={{ links[5].url }}>
+                    <input type=url name=n6_link size=100 value={{ links[5].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -274,7 +274,7 @@
                     News7
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news7 cols=100 rows=2>{{ links[6].title }}</textarea>
+                    <textarea name=news7 cols=100 rows=2 maxlength='200' required>{{ links[6].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -282,7 +282,7 @@
                     News7 Link
                 </th>
                 <td>
-                    <input type=url name=n7_link size=100 value={{ links[6].url }}>
+                    <input type=url name=n7_link size=100 value={{ links[6].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -294,7 +294,7 @@
                     News8
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news8 cols=100 rows=2>{{ links[7].title }}</textarea>
+                    <textarea name=news8 cols=100 rows=2 maxlength='200' required>{{ links[7].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -302,7 +302,7 @@
                     News8 Link
                 </th>
                 <td class=col-md-10>
-                    <input type=url name=n8_link size=100 value={{ links[7].url }}>
+                    <input type=url name=n8_link size=100 value={{ links[7].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -314,7 +314,7 @@
                     News9
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news9 cols=100 rows=2>{{ links[8].title }}</textarea>
+                    <textarea name=news9 cols=100 rows=2 maxlength='200' required>{{ links[8].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -322,7 +322,7 @@
                     News9 Link
                 </th>
                 <td class=col-md-10>
-                    <input type=url name=n9_link size=100 value={{ links[8].url }}>
+                    <input type=url name=n9_link size=100 value={{ links[8].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -334,7 +334,7 @@
                     News10
                 </th>
                 <td class=col-md-10>
-                    <textarea name=news10 cols=100 rows=2>{{ links[9].title }}</textarea>
+                    <textarea name=news10 cols=100 rows=2 maxlength='200' required>{{ links[9].title }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -342,7 +342,7 @@
                     News10 Link
                 </th>
                 <td>
-                    <input type=url name=n10_link size=100 value={{ links[9].url }}>
+                    <input type=url name=n10_link size=100 value={{ links[9].url }} maxlength='200' required>
                 </td>
             </tr>
         </table>
@@ -353,6 +353,5 @@
     </dd>
     </dl>
   </form>
-  
 
 {% endblock %}
