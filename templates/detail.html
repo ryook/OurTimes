@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
-  <h2>detail</h2>
+  
+  <dd>
+    <h2 class=col-md-2>detail</h2>
+    <button type="button" class="btn btn-danger btn_right"><a href="{{ url_for('show_entries')}}">back</a></button>
+    <button type="button" class="btn btn-warning btn_right"><a href="/{{entry.id}}">View Page</a></button>
+    </dd>
   <form method="POST" action="{{ url_for('edit_detail', id= entry.id) }}">
   <div class=form-group>
     <table class=table>
@@ -343,9 +348,10 @@
     </div>
 
      <dd>
-        <button type="button" class="btn btn-success"><input type=submit></button>
+        <button type="submit" class="btn btn-success btn-lg">保存</button>
+    </dd>
     </dl>
   </form>
-  <button type="button" class="btn btn-link"><a href="{{ url_for('show_entries')}}">back</a></button>
+  
 
 {% endblock %}
