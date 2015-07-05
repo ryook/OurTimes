@@ -9,16 +9,28 @@ h3,p{
  	margin: 0;
  }
 
+#center{
+	text-align: center;
+}
+
 #header{
-	font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", Meiryo, sans-serif;
- 	text-align: center;
+	padding: 0;
+	font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", sans-serif;
  	background-color: #27313D;
  	margin-bottom: 20px;
  }
+
+ .photo{
+ 	width: 60%;
+ 	display: block;
+ 	margin: 0 auto;
+ }
+
 #main{
 	padding: 0;
 }
- #footer{
+
+#footer{
  	float: left;
  	background-color: #27313D;
  	text-align: right;
@@ -26,10 +38,7 @@ h3,p{
  	width: 100%;
  }
 
-.photo{
-	display: block;
-	margin: 0 auto;
-}
+
 
 
 #top{

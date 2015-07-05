@@ -5,15 +5,19 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mainstyle.css') }}">
 
-<div id="body" class="container">
-  <div id="header" class="col-xs-12">
-    <img class="photo　img-responsive" src="{{ url_for('static', filename='img/OurTimes.png') }}" class="col-xs-8">
-  </div>
 
-  <div id="main">
-    {% block content %}{% endblock %}
-  </div>
+<div id="body">
+	<div id ="header">
+    	<img class="photo" src="{{ url_for('static', filename='img/OurTimes.png') }}">
+	</div>
+
+	<div class="container">
+	<div id="main" class="container">
+	    {% block content %}{% endblock %}
+	</div>
+	</div>
+
+	<div id="footer" class="container">
+		<p class="col-xs-12" id="c">慶應SFC 社会構造分析</p>
+	</div>
 </div>
-<div id="footer" class="container">
-    <p class="col-xs-12" id="c">慶應SFC 社会構造分析</p>
- </div>

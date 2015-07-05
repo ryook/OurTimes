@@ -1,7 +1,7 @@
 {% extends "mainlayout.html" %}
 {% block content %}
 
-<div id="top" class="col-xs-12">
+<div id="top" >
 	{% for entry in entries %}
 	<a href="{{ url_for('show_content', id= entry.id) }}">
 	<div class="group col-xs-12" >
