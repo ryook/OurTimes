@@ -1,51 +1,88 @@
- #header{
- 	text-align: center;
+#body{
+	background-color: #ECEEF1;
+	margin: 0 auto;
+	width: 100%;
+	font-family: "ＭＳ Ｐ明朝";
+}
+
+h3,p{
+ 	margin: 0;
  }
 
+#header{
+	font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, Meiryo, sans-serif;
+ 	text-align: center;
+ 	background-color: #27313D;
+ 	margin-bottom: 20px;
+ }
+#main{
+	padding: 0;
+}
  #footer{
  	float: left;
- 	background-color: gray;
+ 	background-color: #27313D;
  	text-align: right;
  	color: white;
- }
- footer{
- 	text-align: right;
+ 	width: 100%;
  }
 
-.group{
-	border: 1px solid #a3b1b2;
+.photo{
+	display: block;
+	margin: 0 auto;
+}
+
+
+#top{
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding: 0;
+}
+
+
+.group,
+.box{
+	/*border: 1px solid #a3b1b2;*/
+	padding: 0;
 	margin-bottom: 10px;
+	background-color: #F5F5F5;
 }
 .group-img{
 	float: left;
+	padding: 0;
 }
 .group-text{
-	float: left;
+	float: right;
+	padding: 0;
 }
 .group_title{
 
 }
 
 
+
 #date{
 	text-align: right;
 }
 
-#column,#date,#news{
-	margin-bottom: 20px;
+#columns,#data,#news{
+	/*margin-top: 20px;*/
+	padding: 0;
+}
+#title{
+	text-align: center;
 }
 .logo{
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	border-bottom: 1px solid #a3b1b2;
+	padding: 0;
 }
 
-.box{
-	border: 1px solid #a3b1b2;
-	margin-bottom: 10px;
-}
+
 
 .readmore{
 	margin-top: 30px;
+	padding: 0;
 }
 .read_title,
 .read_image{
@@ -54,3 +91,8 @@
 .edit{
 	text-align: right;
 }
+
+#c{
+	padding: 0;
+}
+

@@ -1,16 +1,16 @@
 {% extends "mainlayout.html" %}
 {% block content %}
 
-<div id="" class="col-xs-12">
+<div id="top" class="col-xs-12">
 	{% for entry in entries %}
 	<a href="{{ url_for('show_content', id= entry.id) }}">
-	<div class="group col-xs-12">
+	<div class="group col-xs-12" >
 		<div class="group-img col-xs-4 thumnail">
-			<img class="group_icon  img-responsive" src={{entry.url}}>
+			<img class="img-responsive" src={{entry.url}}>
 		</div>
-		<div class="group-text col-xs-8">
-			<h3>Group{{loop.index}}</h3>
-			{{entry.title}}
+		<div class="group-text col-xs-7">
+			<p>Group{{loop.index}}</p>
+			<h3 class="group-title">{{entry.title}}</h3>
 		</div>
 	</div>
 	</a>
