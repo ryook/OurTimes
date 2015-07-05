@@ -12,8 +12,9 @@ import os
 DATABASE = "/tmp/ourtimes.db"
 DEBUG = True
 SECRET_KEY = 'development key'
-USERNAME = 'admin_user'
-PASSWORD = 'ssa_2015'
+USERNAME = os.environ["USERNAME"]
+PASSWORD = os.environ["PASSWORD"]
+DEL_KEY = os.environ["DEL_KEY"]
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -173,8 +174,10 @@ def add_entry():
 	flash("New entry was successfully posted")
 	return redirect(url_for("show_entries"))
 
-@app.route("/0520/del/<id>",methods=["GET"])
+@app.route("/"+str(DEL_KEY)+"/del/<id>",methods=["GET"])
 def delete(id):
+	if not session.get("logged_in"):
+		abort(401)
 	target = db_session.query(Entries).get(id)
 	db_session.delete(target)
 	db_session.commit()
