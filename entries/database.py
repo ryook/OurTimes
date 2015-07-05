@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 import os
 
 # databese_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'ourtimes.db')
-database_url = os.environ["database_url"]
+database_url = os.environ["DATABASE_URL"]
 engine = create_engine(database_url, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
