@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 import os
 
 databese_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'ourtimes.db')
-engine = create_engine('postgresql:///' + databese_file, convert_unicode=True)
+engine = create_engine('sqlite3:///' + databese_file, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
