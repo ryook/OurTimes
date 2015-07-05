@@ -7,7 +7,7 @@ class Entries(Base):
 	__tablename__ = "entries"
 	__table_args__ = {"useexisting": True}
 	id = Column("id", Integer, primary_key=True)
-	title = Column("title", Text
+	title = Column("title", Text)
 	member = Column("member", Text)
 	date = Column("date",Text)
 	url = Column("url", String(200))
