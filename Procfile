@@ -1,2 +1,2 @@
-web: gunicorn ourtimes:app --log-file=-
+web: gunicorn ourtimes:app --log-file -
 
