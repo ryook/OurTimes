@@ -3,7 +3,6 @@
 from __future__ import with_statement
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
-from flaskext.sqlalchemy import SQLAlchemy
 from contextlib import closing
 import datetime
 from entries.models import Entries, Links, Columns, Statics
@@ -20,7 +19,7 @@ PASSWORD = 'ssa_2015'
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DATABASE_URL"]
-db = SQLAlchemy(app)
+
 
 @app.teardown_request
 def shutdown_session(exception=None):
