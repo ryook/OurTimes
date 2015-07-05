@@ -11,8 +11,8 @@ from entries.database import db_session, engine
 DATABASE = "/tmp/ourtimes.db"
 DEBUG = True
 SECRET_KEY = 'development key'
-USERNAME = 'admin'
-PASSWORD = 'a'
+USERNAME = 'admin_user'
+PASSWORD = 'ssa_2015'
 
 
 app = Flask(__name__)
