@@ -3,8 +3,8 @@
   {% if column %}
   
   <div class = "readmore col-xs-12" >
-  	<div  class="logo col-xs-12">
-  		<img src="{{ url_for('static', filename='img/column.jpg')}}" class="col-xs-6">
+  	<div class="logo_a col-xs-12">
+  		<img src="{{ url_for('static', filename='img/column.jpg')}}" class="logo col-xs-6">
   	</div>
   	<div class="read_title col-xs-12"><h3>{{ column.title }}</h3></div>
   	<div class="read_image col-xs-12">
@@ -17,16 +17,16 @@
 
   {% if static %}
   <div class = "readmore col-xs-12" >
-  	<div class="logo col-xs-12">
-  		<img src="{{ url_for('static', filename='img/statics.jpg')}}" class="col-xs-6">
+  	<div class="logo_a col-xs-12">
+  		<img src="{{ url_for('static', filename='img/statics.jpg')}}" class="logo col-xs-6">
   	</div>
   	<div class="read_title col-xs-12"><h3>{{ static.title }}</h3></div>
   	<div class="read_image col-xs-12">
   		<img src="{{ static.image_url }}" class="col-xs-12"></img>
   	</div>
   	<div class="read_text col-xs-12">{{ static.text }}</div>
-  	<p class=col-xs-12>
-  		<a href="{{static.url}}">出展</a>
+  	<p id="st_link" class=col-xs-12>
+  		出展<a  href="{{static.url}}">{{static.url}}</a>
   	</p>
   	<p class="edit col-xs-12">editor : {{entry.member}}</p>
 

@@ -1,8 +1,8 @@
 html,body{
 	height: 100%;
+	background-color: #ECEEF1;
 }
 #body{
-	background-color: #ECEEF1;
 	margin: 0 auto;
 	width: 100%;
 	height: 100%;
@@ -11,6 +11,7 @@ html,body{
 
 h3,p{
  	margin: 0;
+ 	padding: 0;
  }
 
 #center{
@@ -33,6 +34,9 @@ h3,p{
 #main{
 	padding: 0;
 	width: 100%;
+	position: relative;
+    height: auto !important;
+    padding-bottom: 20px;
 }
 
 #footer{
@@ -93,10 +97,13 @@ h3,p{
 	border-bottom: 1px solid #a3b1b2;
 	padding: 0;
 }
+.logo_a{
+	padding: 0;
+}
 
 
 .readmore{
-	margin-top: 30px;
+	/*margin-top: 10px;*/
 	padding: 0;
 }
 .read_title,
@@ -114,4 +121,9 @@ h3,p{
 #c{
 	padding: 0;
 }
-
+.edit{
+	padding: 0;
+}
+#st_link{
+	padding: 0;
+}
