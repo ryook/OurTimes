@@ -93,7 +93,6 @@ h3,p{
 	text-align: center;
 }
 .logo{
-	margin-bottom: 10px;
 	border-bottom: 1px solid #a3b1b2;
 	padding: 0;
 }
@@ -127,3 +126,21 @@ h3,p{
 #st_link{
 	padding: 0;
 }
+
+.line_g{
+	border-bottom: 1px solid #7fc7b0;
+	margin-bottom: 10px;
+	padding: 0;
+}
+.line_p{
+	border-bottom: 1px solid #e8548f;
+	margin-bottom: 10px;
+	padding: 0;
+}
+.line_o{
+	border-bottom: 1px solid #f2b242;
+	margin-bottom: 10px;
+	padding: 0;
+}
+
+
