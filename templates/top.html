@@ -3,7 +3,7 @@
 
 <div id="top" >
 	{% if dates %}
-	<div id="btn_erea" class="col-xs-12">
+	<div id="btn_area" class="col-xs-12">
 		{% for date in dates %}
 			<button class="date_btn col-xs-4"><a href="{{ url_for('show_date', date=date)}}">
 				{{ date.strip('2015-').replace("-","/") }}

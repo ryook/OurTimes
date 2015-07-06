@@ -32,7 +32,7 @@ def show_top():
 	dates.sort()
 	return redirect(url_for("show_date",date=dates[len(dates)-1]))
 
-@app.route("/<date>", methods=["GET"])
+@app.route("/date/<date>", methods=["GET"])
 def show_date(date):
 	date_entries = Entries.query.filter_by(date=date).all()
 	show_dates = set([e.date.strip("2015-").replace("-","/") for e in date_entries])
