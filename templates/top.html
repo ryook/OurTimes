@@ -2,6 +2,15 @@
 {% block content %}
 
 <div id="top" >
+	{% if dates %}
+	<div id="btn_erea" class="col-xs-12 row">
+		{% for date in dates %}
+			<button class="date_btn col-xs-4"><a href="{{ url_for('show_date', date=date)}}">
+				{{ date.strip('2015-').replace("-","/") }}
+			</a></button>
+		{% endfor %}
+	</div>
+	{% endif %}
 	{% for entry in entries %}
 	<a href="{{ url_for('show_content', id= entry.id) }}">
 	<div class="group col-xs-12" >

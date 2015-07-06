@@ -28,7 +28,18 @@ def shutdown_session(exception=None):
 @app.route("/", methods=["GET"])
 def show_top():
 	entries = Entries.query.all()
-	return render_template("top.html",entries=entries)
+	dates = list(set([e.date for e in entries]))
+	dates.sort()
+	return render_template("top.html",entries=entries,dates=dates)
+
+@app.route("/<date>", methods=["GET"])
+def show_date(date):
+	date_entries = Entries.query.filter_by(date=date).all()
+	show_dates = set([e.date.strip("2015-").replace("-","/") for e in date_entries])
+	entries = Entries.query.all()
+	dates = list(set([e.date for e in entries]))
+	dates.sort()
+	return render_template("top.html",entries=date_entries,show_dates=show_dates,dates=dates)
 
 @app.route("/<id>",methods=["GET"])
 def show_content(id):

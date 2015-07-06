@@ -22,7 +22,7 @@ h3,p{
 	padding: 0;
 	font-family: "Hiragino Kaku Gothic ProN", "游ゴシック", sans-serif;
  	background-color: #27313D;
- 	margin-bottom: 20px;
+ 	margin-bottom: 5px;
  }
 
  .photo{
@@ -55,7 +55,6 @@ h3,p{
 #top{
 	display: block;
 	margin: 0 auto;
-	margin-top: 20px;
 	padding: 0;
 }
 
@@ -141,6 +140,16 @@ h3,p{
 	border-bottom: 1px solid #f2b242;
 	margin-bottom: 10px;
 	padding: 0;
+}
+
+.date_btn{
+	background-color: #27313D;
+	border:1px solid #ECEEF1;
+	margin-bottom: 5px;
+}
+.date_btn a{
+	color: white;
+
 }
 
 
