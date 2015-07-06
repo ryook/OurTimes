@@ -144,7 +144,7 @@ h3,p{
 
 .date_btn{
 	background-color: #27313D;
-	border:1px solid #ECEEF1;
+	/*border:1px solid #ECEEF1;*/
 	margin-bottom: 5px;
 }
 .date_btn a{
