@@ -30,7 +30,7 @@ def show_top():
 	entries = Entries.query.all()
 	dates = list(set([e.date for e in entries]))
 	dates.sort()
-	return redirect(url_for("show_date",date=dates[0]))
+	return redirect(url_for("show_date",date=dates[len(dates)-1]))
 
 @app.route("/<date>", methods=["GET"])
 def show_date(date):
