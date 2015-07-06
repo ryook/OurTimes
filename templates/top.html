@@ -5,10 +5,10 @@
 	{% for entry in entries %}
 	<a href="{{ url_for('show_content', id= entry.id) }}">
 	<div class="group col-xs-12" >
-		<div class="group-img col-xs-4 thumnail">
+		<div class="group-img col-xs-3 thumnail">
 			<img class="img-responsive" src={{entry.url}}>
 		</div>
-		<div class="group-text col-xs-7">
+		<div class="group-text col-xs-8">
 			<p>Group{{loop.index}}</p>
 			<h3 class="group-title">{{entry.title}}</h3>
 		</div>
