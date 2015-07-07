@@ -47,8 +47,7 @@ def show_content(id):
 	links = Links.query.filter_by(entry_id=id).all()
 	columns = Columns.query.filter_by(entry_id=id).all()
 	statics = Statics.query.filter_by(entry_id=id).all()
-	pic = ["image/s1.jpg","image/s2.jpg","image/s3.jpg","image/s4.jpg","image/s5.jpg","image/s6.jpg","image/s7.jpg","image/s8.jpg","image/s9.jpg","image/s10.jpg"]
-	return render_template("content.html",entry=entry,links=links,statics=statics,columns=columns,pic=pic)
+	return render_template("content.html",entry=entry,links=links,statics=statics,columns=columns)
 
 @app.route("/column/<id>", methods=["GET"])
 def show_column(id):
