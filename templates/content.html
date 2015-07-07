@@ -27,21 +27,6 @@
 	<img src="{{ url_for('static', filename='img/news.png')}}" class="col-xs-3 logo">
 </div>
 
-<!-- {% if entry.date == u"2015-07-07" %}
-{% for link in links%}
-<div class="box col-xs-12">
-	<div class="group-img col-xs-2 thumnail">
-			<img class="group_icon  img-responsive" src="https://dl.dropboxusercontent.com/u/12755271/ourtimes/{{entry_id}}/s{{loop.index}}.jpg">
-	</div>
-	<div class="group-text col-xs-9">
-		<a href="{{link.url}}">
-			<h5>{{link.title}}</h5>
-		</a>
-	</div>
-</div>
-{%endfor%}
-{% endif %} -->
-
 {% for link in links%}
 <div class="box col-xs-12">
 	<div class="group-img col-xs-2 thumnail">
@@ -54,8 +39,6 @@
 	</div>
 </div>
 {%endfor%}
-
-
 
 </div>
 
