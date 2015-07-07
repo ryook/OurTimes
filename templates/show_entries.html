@@ -6,13 +6,15 @@
   </p>
   <table class="table table-striped table-bordered">
     <tr>
+      <th class="col-md-1">id</th>
       <th class="col-md-2">date</th>
-      <th class="col-md-5">title</th>
+      <th class="col-md-4">title</th>
       <th class="col-md-4">member</th>
       <th class="col-md-1"></th>
     </tr>
     {% for entry in entries %}
     <tr>
+      <td>{{ entry.id }}</td>
       <td>{{ entry.date }}</td>
       <td>{{ entry.title }}</td>
       <td>{{ entry.member|safe }}</td>
