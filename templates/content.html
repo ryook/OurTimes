@@ -27,7 +27,7 @@
 	<img src="{{ url_for('static', filename='img/news.png')}}" class="col-xs-3 logo">
 </div>
 
-{% if entry.date == "2015-07-07" %}
+{% if entry.date == u"2015-07-07" %}
 {% for link in links%}
 <div class="box col-xs-12">
 	<div class="group-img col-xs-2 thumnail">
@@ -40,8 +40,9 @@
 	</div>
 </div>
 {%endfor%}
+{% endif %}
 
-{% elseif %}
+{% if entry.date == u"2015-07-07" %}
 {% for link in links%}
 <div class="box col-xs-12">
 	<div class="group-img col-xs-2 thumnail">
@@ -54,7 +55,6 @@
 	</div>
 </div>
 {%endfor%}
-
 {% endif %}
 
 
